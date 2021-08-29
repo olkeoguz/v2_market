@@ -1,0 +1,41 @@
+.Single {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Helvetica';
+  font-size: 14px;
+  max-width: 124px;
+}
+
+.imageContainer {
+  border: 2px solid #f3f0fe;
+  padding: 1.2rem;
+  width: 124px;
+  height: 124px;
+}
+
+.price {
+  color: var(--primary);
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.name {
+  font-family: 'Open Sans';
+  /* font-weight: 400; */
+  margin-bottom: 28px;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 3px 50px 3px 51px;
+  font-weight: 700;
+  margin-top: auto;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}

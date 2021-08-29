@@ -1,0 +1,50 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 608px) minmax(0, 1fr);
+  display: grid;
+  width: 100%;
+  padding: 40.88px 6.5rem;
+  grid-gap: 1rem;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+}
+
+.mediumScreenFilters {
+  display: none;
+}
+
+@media only screen and (max-width: 1096px) {
+  .grid {
+    display: flex;
+    padding: 30px 1rem;
+  }
+
+  .first,
+  .third {
+    display: none;
+  }
+
+  .second {
+    width: 100%;
+  }
+
+  .mediumScreenFilters {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1296px) {
+  .grid {
+    padding: 30px 1em;
+  }
+}

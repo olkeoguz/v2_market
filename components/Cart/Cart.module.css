@@ -1,0 +1,109 @@
+.Cart {
+  border: 8px solid var(--primary);
+  border-radius: 2px;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--grid-item-bg);
+  top: 1rem;
+  margin-bottom: 12px;
+}
+
+.Cart.Sticky {
+  position: sticky;
+}
+
+.CartMobile {
+  background-color: red;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35.77px;
+  border-bottom: 1px solid var(--primary);
+}
+
+.namePrice small {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.namePrice p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.quantitiyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantitiyContainer .btn {
+  color: var(--primary);
+  margin: 0 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.quantitiyContainer .btn:hover {
+  color: var(--primary-hover);
+}
+
+.quantity {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary);
+  padding: 6px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity p {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.totalPrice {
+  display: flex;
+}
+
+.totalPrice div {
+  border: 1px solid var(--primary);
+  border-radius: 2px;
+  padding: 17px 24px;
+  margin-left: auto;
+  width: 92px;
+}
+
+.totalPrice small {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyCart h5 {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.shopIcon {
+  color: var(--primary);
+}
+
+.Cart button {
+  background-color: inherit;
+  color: red;
+  border: 2px solid red;
+  padding: 8px 12px;
+}

@@ -1,0 +1,48 @@
+.header {
+  width: 100%;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 0px;
+  position: relative;
+}
+
+.totalPriceContainer {
+  height: 100%;
+  background-color: #147594;
+  position: absolute;
+  top: 0;
+  right: 7.22%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  color: white;
+}
+
+.price {
+  margin-left: 0.5rem;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+
+.drawerMenu {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  height: 100%;
+  color: white;
+  display: none;
+}
+
+@media only screen and (max-width: 1096px) {
+  .totalPriceContainer {
+    right: 0;
+    padding: 10px;
+  }
+  .drawerMenu {
+    display: block;
+  }
+}

@@ -1,0 +1,55 @@
+.Pagination {
+  max-width: 80%;
+  margin: 32px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paginationList {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 4px;
+}
+
+.pageNum {
+  padding: 12px;
+  cursor: pointer;
+  transition: padding 0.15s ease-in-out;
+}
+
+.pageNum:hover {
+  background-color: var(--background);
+  padding: 12px;
+}
+
+.active {
+  background-color: var(--primary);
+  padding: 12px;
+  border-radius: 2px;
+}
+
+.active:hover {
+  background-color: var(--primary);
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.Pagination button {
+  background-color: inherit;
+  color: var(--primary);
+}
+
+.Pagination button span {
+  margin: 0 7px;
+}
+
+.Pagination button:hover {
+  color: var(--primary-hover);
+}
