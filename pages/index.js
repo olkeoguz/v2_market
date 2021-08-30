@@ -67,7 +67,8 @@ export default function Home({ products }) {
 
 export const getServerSideProps = async () => {
   try {
-    const res = await fetch('https://my-market-db.herokuapp.com/items');
+    // const res = await fetch('https://my-market-db.herokuapp.com/items');
+    const res = await fetch('http://localhost:8000/items');
 
     if (!res.ok) {
       throw new Error('Something went wrong! Cannot fetch the products...');

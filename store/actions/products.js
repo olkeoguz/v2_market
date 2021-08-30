@@ -29,15 +29,16 @@ export const filterBrands = (brandFilter, status) => {
   };
 };
 
-export const combineBrandsWithTags = () => {
+export const filterTags = (tagFilters) => {
   return {
-    type: COMBINE_BRANDS,
+    type: FILTER_TAGS,
+    tagFilters,
   };
 };
 
-export const allBrands = () => {
+export const combineBrandsWithTags = () => {
   return {
-    type: ALL_BRANDS,
+    type: COMBINE_BRANDS,
   };
 };
 
@@ -47,11 +48,9 @@ export const combineTagsWithBrands = () => {
   };
 };
 
-export const filterTags = (tagFilter, status) => {
+export const allBrands = () => {
   return {
-    type: FILTER_TAGS,
-    tagFilter,
-    status,
+    type: ALL_BRANDS,
   };
 };
 

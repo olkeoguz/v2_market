@@ -115,29 +115,22 @@ const productReducer = (state = initialState, action) => {
       }
 
     case FILTER_TAGS:
-      switch (action.status) {
-        case 'increase':
-          return {
-            ...state,
-            tagFilteredProducts: [
-              ...state.tagFilteredProducts,
-              ...state.products.filter(
-                (prod) =>
-                  prod.tags.includes(action.tagFilter) &&
-                  !state.tagFilteredProducts.find((p) => p.id === prod.id)
-              ),
-            ],
-          };
-        case 'decrease':
-          return {
-            ...state,
-            tagFilteredProducts: state.tagFilteredProducts.filter(
-              (prod) => !prod.tags.includes(action.tagFilter)
-            ),
-          };
-      }
+      let updatedFilteredTags = [];
+      action.tagFilters.forEach((tagFilter) => {
+        // updatedFilteredTags.push(
+        //   state.products.filter((prod) => prod.tags.includes(tagFilter))
+        // );
+        updatedFilteredTags = [
+          ...updatedFilteredTags,
+          ...state.products.filter((prod) => prod.tags.includes(tagFilter)),
+        ];
+      });
+      return {
+        ...state,
+        tagFilteredProducts: updatedFilteredTags,
+      };
 
-    // Combine brand filtered items and tag filtered items
+    // Combine brand filtered items with the tag filtered items
     case COMBINE_BRANDS:
       return {
         ...state,
@@ -150,7 +143,7 @@ const productReducer = (state = initialState, action) => {
           : [...state.brandFilteredProducts],
       };
 
-    // Combine brand filtered items and tag filtered items
+    // Combine tag filtered items with the brand filtered items
     case COMBINE_TAGS:
       return {
         ...state,

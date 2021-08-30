@@ -21,7 +21,34 @@ const Tags = () => {
       dispatch(productActions.allTags());
       dispatch(productActions.sortProducts(sortingOption));
     }
-  }, [tagFilters]);
+  }, [tagFilters, dispatch, productActions]);
+
+  useEffect(() => {
+    if (tagFilters.length > 0 && !tagFilters.includes('all')) {
+      dispatch(productActions.filterTags(tagFilters));
+      dispatch(productActions.combineTagsWithBrands());
+      dispatch(productActions.sortProducts(sortingOption));
+    }
+  }, [tagFilters, dispatch, productActions]);
+
+  const handleChange = (e) => {
+    if (e.target.id === 'all') {
+      setTagFilters(['all']);
+      dispatch(productActions.allTags());
+      dispatch(productActions.sortProducts(sortingOption));
+    } else {
+      if (e.target.checked) {
+        setTagFilters((prevFilters) => [...prevFilters, e.target.id]);
+        setTagFilters((prevFilters) =>
+          prevFilters.filter((filt) => filt !== 'all')
+        );
+      } else {
+        setTagFilters((prevFilters) =>
+          prevFilters.filter((filt) => filt !== e.target.id)
+        );
+      }
+    }
+  };
 
   let tagsSet = new Set();
 
@@ -34,31 +61,6 @@ const Tags = () => {
     return tagsSet;
   }, [products]);
   const tags = useMemo(() => [...tagsSet], [tagsSet]);
-
-  const handleChange = (e) => {
-    if (e.target.id === 'all') {
-      setTagFilters(['all']);
-      dispatch(productActions.allTags());
-      dispatch(productActions.sortProducts(sortingOption));
-    } else {
-      if (e.target.checked && e.target.id !== 'all') {
-        setTagFilters((prevFilters) => [...prevFilters, e.target.id]);
-        setTagFilters((prevFilters) =>
-          prevFilters.filter((filt) => filt !== 'all')
-        );
-        dispatch(productActions.filterTags(e.target.id, 'increase'));
-        dispatch(productActions.combineTagsWithBrands());
-        dispatch(productActions.sortProducts(sortingOption));
-      } else {
-        setTagFilters((prevFilters) =>
-          prevFilters.filter((filt) => filt !== e.target.id)
-        );
-        dispatch(productActions.filterTags(e.target.id, 'decrease'));
-        dispatch(productActions.combineTagsWithBrands());
-        dispatch(productActions.sortProducts(sortingOption));
-      }
-    }
-  };
 
   const inputChangeHandler = (text) => {
     let matches = [...tags];
